@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nos Véhicules - Malick Business Automobile</title>
+  <meta name="description" content="Découvrez les véhicules à louer chez Malick Business Automobile : voitures économiques, SUV, 4x4... à petits prix au Sénégal.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Malick Business Automobile</h1>
+      <nav>
+        <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cars.html" class="active">Nos Véhicules</a></li>
+          <li><a href="reservation.html">Réserver</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="vehicles">
+      <div class="container">
+        <h2>Nos Véhicules Disponibles</h2>
+        <div class="vehicle-list">
+
+          <div class="vehicle-card">
+            <img src="assets/img/toyota.jpg" alt="Toyota Corolla" />
+            <h3>Toyota Corolla</h3>
+            <p>Automatique • Essence • Climatisée</p>
+            <p><strong>30 000 FCFA / jour</strong></p>
+            <a href="reservation.html" class="btn">Réserver</a>
+          </div>
+
+          <div class="vehicle-card">
+            <img src="assets/img/hyundai.jpg" alt="Hyundai Tucson" />
+            <h3>Hyundai Tucson</h3>
+            <p>SUV • Diesel • Bluetooth</p>
+            <p><strong>35 000 FCFA / jour</strong></p>
+            <a href="reservation.html" class="btn">Réserver</a>
+          </div>
+
+          <div class="vehicle-card">
+            <img src="assets/img/mazda.jpg" alt="Mazda CX-5" />
+            <h3>Mazda CX-5</h3>
+            <p>4x4 • Automatique • GPS intégré</p>
+            <p><strong>40 000 FCFA / jour</strong></p>
+            <a href="reservation.html" class="btn">Réserver</a>
+          </div>
+
+          <div class="vehicle-card">
+            <img src="assets/img/peugeot.jpg" alt="Peugeot 208" />
+            <h3>Peugeot 208</h3>
+            <p>Manuelle • Essence • Compacte</p>
+            <p><strong>22 000 FCFA / jour</strong></p>
+            <a href="reservation.html" class="btn">Réserver</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2025 Malick Business Automobile</p>
+      <p>Téléphone : <a href="tel:+221765024160">+221 76 502 4160</a></p>
+    </div>
+  </footer>
+
+  <!-- Bouton WhatsApp flottant -->
+  <a href="https://wa.me/221765024160" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !expanded);
+    });
+  </script>
+
+</body>
+</html>

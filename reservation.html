@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Réservation - Malick Business Automobile</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Malick Business Automobile</h1>
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cars.html">Nos Véhicules</a>
+        <a href="reservation.html">Réserver</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="reservation">
+      <div class="container">
+        <h2>Formulaire de Réservation</h2>
+        <form name="reservation" method="POST" data-netlify="true" action="merci.html" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="reservation">
+
+          <label for="nom">Nom complet :</label>
+          <input type="text" id="nom" name="nom" required>
+
+          <label for="telephone">Téléphone :</label>
+          <input type="tel" id="telephone" name="telephone" required>
+
+          <label for="email">Email :</label>
+          <input type="email" id="email" name="email">
+
+          <label for="voiture">Voiture souhaitée :</label>
+          <select id="voiture" name="voiture">
+            <option value="Toyota Prado">Toyota Prado</option>
+            <option value="Toyota Yaris">Toyota Yaris</option>
+            <option value="Toyota Hilux">Toyota Hilux</option>
+          </select>
+
+          <label for="date-debut">Date de début :</label>
+          <input type="date" id="date-debut" name="date-debut" required>
+
+          <label for="date-fin">Date de fin :</label>
+          <input type="date" id="date-fin" name="date-fin" required>
+
+          <label for="chauffeur">Avec chauffeur ?</label>
+          <select id="chauffeur" name="chauffeur">
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+          </select>
+
+          <button type="submit" class="btn">Envoyer la réservation</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Malick Business Automobile</p>
+      <p>Téléphone : <a href="tel:+221765024160" style="color:#ccc; text-decoration:none;">+221 76 502 4160</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.querySelector('form[name="reservation"]');
+
+    form.addEventListener('submit', function(event) {
+      const nom = form['nom'].value.trim();
+      const telephone = form['telephone'].value.trim();
+      const dateDebut = new Date(form['date-debut'].value);
+      const dateFin = new Date(form['date-fin'].value);
+
+      // Validation du nom
+      if (nom.length < 2) {
+        alert("Le nom doit contenir au moins 2 caractères.");
+        event.preventDefault();
+        return;
+      }
+
+      // Validation du téléphone
+      const telPattern = /^(?:\+221|7)[0-9]{7,8}$/;
+      if (!telPattern.test(telephone)) {
+        alert("Veuillez entrer un numéro valide (+221 ou 7X...).");
+        event.preventDefault();
+        return;
+      }
+
+      // Validation des dates
+      if (dateFin <= dateDebut) {
+        alert("La date de fin doit être supérieure à la date de début !");
+        event.preventDefault();
+        return;
+      }
+
+      alert("Merci ! Votre demande de réservation est en cours de traitement.");
+    });
+  </script>
+</body>
+</html>
+
+

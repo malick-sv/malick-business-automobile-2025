@@ -1,7 +1,7 @@
-/* Importer une police moderne */
+/* Import Google font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Reset simple */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -21,11 +21,13 @@ body {
   margin: auto;
 }
 
-/* ====== HEADER ====== */
+/* HEADER */
 header {
   background-color: #000;
   color: #fff;
   padding: 15px 0;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 header h1 {
@@ -35,60 +37,88 @@ header h1 {
 }
 
 nav {
-  display: inline-block;
   float: right;
-  margin-right: 10px;
+  position: relative;
 }
 
-nav a {
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
   color: #fff;
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
-nav a:hover {
+.nav-links li a:hover,
+.nav-links li a.active {
   color: #eab308;
+  border-bottom: 2px solid #eab308;
 }
 
-/* ====== HERO BANNER ====== */
+/* Hamburger menu */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* HERO */
 .hero {
-  background-image: url('assets/img/hero-car.jpg'); /* Assure-toi que cette image existe */
+  background-image: url('assets/img/hero-car.jpg');
   background-size: cover;
   background-position: center;
   height: 400px;
   display: flex;
   align-items: center;
   color: white;
-  text-shadow: 1px 1px 5px black;
-  margin-bottom: 30px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  margin-bottom: 40px;
 }
 
-.hero .container {
+.hero-content {
   max-width: 600px;
+  padding-left: 20px;
 }
 
-/* ====== BOUTONS ====== */
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* BUTTONS */
 .btn {
   background: linear-gradient(45deg, #ffc107, #ff9800);
   color: #000;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
   box-shadow: 0 5px 10px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: inline-block;
-  margin-top: 15px;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(45deg, #ffb300, #ff6f00);
 }
 
-/* ====== SECTION VÉHICULES ====== */
+/* VEHICLES */
 .vehicles {
   padding: 40px 0;
 }
@@ -113,7 +143,7 @@ nav a:hover {
   width: 300px;
   padding: 15px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .vehicle-card:hover {
@@ -137,67 +167,72 @@ nav a:hover {
   margin: 5px 0;
 }
 
-/* ====== FORMULAIRE RÉSERVATION ====== */
-.reservation {
-  padding: 40px 0;
-}
-
-.reservation h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-form {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-form label {
-  display: block;
-  margin: 15px 0 5px;
-  font-weight: bold;
-}
-
-form input,
-form select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-form button {
-  margin-top: 20px;
-  width: 100%;
-  font-size: 16px;
-}
-
-/* ====== FOOTER ====== */
+/* FOOTER */
 footer {
   background-color: #222;
   color: #ccc;
-  text-align: center;
   padding: 15px 0;
   margin-top: 50px;
-}
-
-footer p {
-  margin: 0;
+  text-align: center;
   font-size: 14px;
 }
 
-/* ====== RESPONSIVE ====== */
+.footer-content a {
+  color: #eab308;
+  margin: 0 5px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footer-content a:hover {
+  color: #fff;
+}
+
+/* WhatsApp bouton */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  text-decoration: none;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     float: none;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background-color: #000;
+    position: absolute;
+    top: 55px;
+    right: 10px;
+    width: 180px;
+    display: none;
+    border-radius: 5px;
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
     margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+    margin: 0 auto;
   }
 
   .vehicle-list {
@@ -209,9 +244,89 @@ footer p {
     width: 90%;
   }
 
-  header h1,
-  nav {
+  header h1 {
     text-align: center;
-    width: 100%;
+    margin-bottom: 10px;
   }
+
+  .hero-content {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+/* Ajout d'un effet de survol sur les liens de navigation */
+.nav-links li a:hover {
+  background-color: rgba(234, 179, 8, 0.2); /* Fond léger au survol */
+  border-radius: 5px; /* Coins arrondis */
+}
+.hero {
+  background-image: url('assets/img/hero-car.jpg'); /* Assurez-vous que l'image existe */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  margin-bottom: 40px;
+  padding: 20px; /* Ajout de padding */
+}
+.vehicle-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+.vehicle-card:hover {
+  transform: scale(1.05); /* Agrandissement au survol */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Ombre plus prononcée */
+}
+/* Galerie Véhicules */
+.vehicle-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.vehicle-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+}
+
+.vehicle-card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.vehicle-card h3 {
+  margin: 15px 0 10px;
+  color: #333;
+}
+
+.vehicle-card ul {
+  list-style: none;
+  margin: 15px 0;
+}
+
+.vehicle-card li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }

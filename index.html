@@ -11,30 +11,78 @@
     <div class="container">
       <h1>Malick Business Automobile</h1>
       <nav>
-        <a href="index.html">Accueil</a>
-        <a href="cars.html">Nos Véhicules</a>
-        <a href="reservation.html">Réserver</a>
-        <a href="contact.html">Contact</a>
+        <button class="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="cars.html">Nos Véhicules</a></li>
+          <li><a href="reservation.html">Réserver</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container">
+      <div class="container hero-content">
         <h2>Location de voitures à Dakar</h2>
         <p>Votre mobilité, notre priorité !</p>
         <a href="reservation.html" class="btn">Réserver maintenant</a>
       </div>
     </section>
+
+    <section class="vehicles">
+      <div class="container">
+        <h2>Nos véhicules populaires</h2>
+        <div class="vehicle-list">
+          <div class="vehicle-card">
+            <img src="assets/img/toyota.jpg" alt="Toyota Corolla" />
+            <h3>Toyota Corolla</h3>
+            <p>Automatique • Essence • Climatisée</p>
+            <p><strong>30 000 FCFA / jour</strong></p>
+            <a href="cars.html" class="btn">Voir plus</a>
+          </div>
+          <div class="vehicle-card">
+            <img src="assets/img/hyundai.jpg" alt="Hyundai Tucson" />
+            <h3>Hyundai Tucson</h3>
+            <p>SUV • Diesel • Bluetooth</p>
+            <p><strong>35 000 FCFA / jour</strong></p>
+            <a href="cars.html" class="btn">Voir plus</a>
+          </div>
+          <div class="vehicle-card">
+            <img src="assets/img/mazda.jpg" alt="Mazda CX-5" />
+            <h3>Mazda CX-5</h3>
+            <p>4x4 • Automatique • GPS intégré</p>
+            <p><strong>40 000 FCFA / jour</strong></p>
+            <a href="cars.html" class="btn">Voir plus</a>
+          </div>
+          <div class="vehicle-card">
+            <img src="assets/img/peugeot.jpg" alt="Peugeot 208" />
+            <h3>Peugeot 208</h3>
+            <p>Manuelle • Essence • Compacte</p>
+            <p><strong>22 000 FCFA / jour</strong></p>
+            <a href="cars.html" class="btn">Voir plus</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Malick Business Automobile</p>
-    </div>
-  </footer>
+  <div class="container">
+    <p>&copy; 2025 Malick Business Automobile</p>
+    <p>Téléphone : <a href="tel:+221765024160" style="color:#ccc; text-decoration:none;">+221 76 502 4160</a></p>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
